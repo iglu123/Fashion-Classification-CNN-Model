@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>DEEP OCEAN</title>
+    <link rel="stylesheet" href="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Jua', sans-serif;
+            text-align: center;
+            background-color: #f393bb;  /* 분홍분홍 */
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>당신의 스타일은..</h1>
+<div class="agile-its">
+    <h2>당신의 옷 스타일은 {{label}}! AI가 이 스타일의 추천사진을 보여드릴게요!</h2>
+
+    <form id="upload" action="/predictgirl" method="POST" enctype="multipart/form-data">
+        <div class="img">
+<!--            <div id="image_preview">-->
+<!--                <img style="width:400px; height:600px;" img id="preview" />-->
+<!--            </div>-->
+            <div class="f_box">
+                    <!-- <label for="img">사진첨부</label> -->
+                    <input type="file" id="img"  name="image" onchange="readURL(this);">
+            </div>
+
+
+            <button><a onclick="window.location.href='/stylecls'" style="background-color: #c7ccc3;">다른 사진으로 다시할래</a></button>
+
+        </div>
+
+        <div>
+
+        </div>
+
+        <div>
+            {% for i in range(64) %}
+            <img src="{{imagerows[i]['url']}}">
+            {% endfor %}
+        </div>
+    </form>
+    <script>
+        function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('preview').src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    document.getElementById('preview').src = "";
+  }
+}
+    </script>
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjdahr22.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</body>
+</html>

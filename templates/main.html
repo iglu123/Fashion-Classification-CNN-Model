@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="DEEP OCEAN">
+  <meta name="description" content="오늘의 패션">
+   <link rel="icon" type="image/svg+xml" href="images/water-solid.svg">
+
+  <title>DEEP OCEAN</title>
+
+
+<!--  <&#45;&#45; Bootstrap &ndash;&gt;-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <!-- Main CSS -->
+  <link href="css/main.css" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/b8a7fea4d4.js" crossorigin="anonymous"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Noto+Sans+KR:wght@300;400&display=swap');
+
+* {
+  margin: 0;   /* 마진 리셋 */
+  padding: 0;   /* 패딩 리셋 */
+  box-sizing: border-box;   /* 박스 영역은 테두리까지 */
+  font-family: 'Noto Sans KR', sans-serif;
+}
+html, body {
+  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;  /* 텍스트 링크 밑줄 없애기 */
+}
+ul {
+  list-style: none; /* 리스트 스타일 없애기 */
+}
+
+.row {
+  height: 100%;
+}
+
+/*********************************/
+/*           대문 영역           */
+/*********************************/
+.title_page {
+  position: absolute;
+  width: 50%;
+  height: 30%;
+  margin-top: 30px;
+  padding: 0;
+  line-height: 50vh;
+  align-content: center;
+  text-align: center;
+  top: 10%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+    #title_text {
+      font-family: 'Alumni Sans Collegiate One', sans-serif;
+      font-size: 9em;
+      color: #BFCFFF;
+      text-shadow: 0 -1px 0 #93aaef;
+      margin-top: 30%;
+      margin-bottom: 0;
+      line-height: 60%;
+  }
+    #today_style {
+        font-size: 2em;
+        font-weight: 400;
+        color: #809FFF;
+        text-shadow: 0 -1px 0 #07c;
+        margin-bottom: 0;
+        line-height: 80%;
+    }
+    #introduce {
+        font-size: 1.5em;
+        font-weight: 400;
+        color: #678dfd;
+        text-shadow: 0 -1px 0 #07c;
+        margin-top: 10px;
+    }
+  .area_sns {
+    margin: 0 auto;
+    margin-top: 15%;
+    width: 100%;
+    font-size: 45px;
+    color: rgb(200, 212, 231);
+    }
+      #button {
+          font-size: 3em;
+      }
+      #button :hover {
+          cursor: pointer;
+      }
+/*********************************/
+/*  헤더 영역 - 로고와 네비게이션  */
+/*********************************/
+  #container {
+    margin: 0 auto;  /* 화면 중앙에 배치 */
+    width: 100%;    /* 너비 */
+    height: auto;
+    background-color: steelblue;
+  }
+
+/* 로고 */
+  #logo{
+    float: left;   /* 왼쪽으로 플로팅 */
+    width: 300px;   /*  너비 */
+    height: 100px;   /* 높이 */
+    line-height: 100px;  /* 세로로 중간에 맞춤 - 줄간격을 높이 값과 같게 */
+    padding-left: 10px;  /* 왼쪽에 여백 */
+  }
+  #logo h1 {
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    font-weight: 400;
+    font-size: 5em;   /* 글자 크기 */
+    color: whitesmoke;   /* 글자 색*/
+    text-shadow: 0 -1px 0 #222;  /* 그림자 색 */
+    text-align: center;
+  }
+
+/* 네비게이션 */
+  #topMenu {
+    height: 50%;
+    margin-top: 15%;
+  }
+  #topMenu > li {
+    float: left;  /* 메뉴 항목을 왼쪽으로 플로팅 */
+    position: relative;  /* 서브 메뉴를 absolute로 하기 위해, 이 부분을 relative로 */
+  }
+  #topMenu > li > a{
+    font-size: 2em;
+    display: block;  /* 링크 텍스트는 블록으로 */
+    color: #fff;  /* 글자 색 */
+    font-weight: 400;  /* 글자 굵기 */
+    text-shadow: 0 1px #07c;  /* 그림자 추가 */
+    padding: 15px 15px;  /* 패딩 */
+  }
+  #topMenu > li > a > span {
+    font-size: 0.5em;   /* 서브 메뉴가 있는 항목에 화살표 표시 */
+  }
+  #topMenu > li > a:hover {
+    color: skyblue;  /* 마우스 오버하면 색상 바뀜 */
+    text-shadow: 0 -1px #07c;  /* 글자가 너무 굵어지지 않도록 */
+  }
+
+  #topMenu > li > ul { /* 서브 메뉴 스타일 */
+    display: none;  /* 서브 메뉴 처음에는 화면에 안 보이게 */
+    position: absolute;  /* 서브 메뉴 포지셔닝 */
+    width: 160px;
+    background: rgba(255,255,255,0.6);  /* 슬라이드 쇼 비치도록 배경 색 조절 */
+    left: 20px;
+    margin: 0;
+  }
+  #topMenu > li > ul > li {
+    padding: 10px 10px 10px 10px;   /* 서브 메뉴 항목 */
+  }
+  #topMenu > li > ul > li > a {
+    font-size: 14px;
+    padding: 10px;
+    color: #000;
+  }
+  #topMenu > li:hover > ul {
+    display: block;  /* 메인 메뉴 항목 위로 오버하면 서브 메뉴 표시 */
+    z-index: 10;  /* 슬라이드 쇼에 가리지 않게 조절 */
+  }
+  #topMenu > li > ul > li > a:hover {
+    color: steelblue;  /* 서브 메뉴 마우스 오버하면 색상 바뀜 */
+  }
+
+/********************************/
+/*   이미지 슬라이드 쇼 영역     */
+/********************************/
+
+  #slideShow {
+    clear: both;   /* 플로팅 해제 */
+    width: 100%;    /* 너비 */
+    /* height: 200px;   높이  */
+    /* overflow: hidden;   영역 넘치면 감춤  */
+    position: relative;
+  }
+
+
+  #prev,
+  #next {
+    position: absolute;
+    height: 100%;  /* 위아래 가득 차게 */
+    top: 0;
+    border: none;  /* 테두리 없이 */
+    padding: 20px;
+    background-color: transparent;  /* 투명 배경 */
+    color: #000;  /* 화살표 색은 검정 */
+    font-weight: 800;  /* 굵게 */
+    font-size: 24px;  /* 화살표 크기 */
+    opacity: 0.5;  /* 반투명 */
+  }
+  #prev:hover,
+  #next:hover {
+    background-color: #222;  /* 짙은 회색 배경 */
+    color: #fff;   /* 흰색 화살표 */
+    opacity: 0.6;   /* 불투명도를 조금 높임 */
+    cursor: pointer;  /* 커서 모양을 포인터로 */
+  }
+  #prev:focus,
+  #next:focus {
+    outline: 0;  /* 아웃트라인 없앰 */
+  }
+
+
+/***************************************/
+/*   콘텐츠 영역  - 탭 메뉴와 퀵 링크   */
+/**************************************/
+
+#contents{
+  width:100%;   /* 너비 */
+  height:200px;  /* 높이 */
+  margin-top:20px;  /* 마진 추가 */
+}
+
+/* 탭 메뉴 */
+#tabMenu{
+  float:right;  /* 왼쪽으로 플로팅 */
+  width:600px;   /* 너비 */
+  height:100%;   /* 높이 */
+  margin-top:5px;  /* 탭 메뉴 위쪽에 여백 두기 */
+}
+
+/* 퀵 링크 */
+#links{
+  float:right;   /* 오른쪽으로 플로팅 */
+  width:100%;   /* 너비 */
+  height:100%;   /* 높이 */
+  margin-top:20px;  /* 마진 추가 */
+}
+#links ul{
+  padding:0;  /* 패딩 */
+  overflow: hidden;  /* 넘치는 것은 감춤 */
+}
+#links ul li{
+  float:left;  /* 가로로 배치 */
+  width:33%;  /* 1/3 크기만큼씩 */
+  text-align:center;  /* 가운데 정렬 */
+  margin:0 auto;  /* 마진 */
+}
+
+#links ul li a span{
+  display:block;  /* 블록 레벨로 */
+  margin:0 auto;  /* 가운데 배치 */
+  width:150px;  /* 가로 크기 */
+  height:150px;  /* 세로 크기 */
+  border-radius:10%;  /* 테두리 둥글게. border-radius: 150px로 해도 됨 */
+  border:1px solid #ddd;  /* 테두리 스타일 */
+  line-height:150px;  /* 수직으로 중간에 오게 */
+}
+
+#quick-icon1 {
+  background-image: url(../static/img7.jpg);
+}
+#quick-icon2 {
+  background-image: url(../static/img2.jpg);
+}
+#quick-icon3 {
+  background-image: url(../static/img9.jpg);
+}
+
+#links ul li a p {
+  margin-top:15px;  /* 위쪽 마진 */
+  font-weight:300;  /* 글자 굵기 */
+  color:#666;  /* 글자 색 */
+}
+
+/******************/
+/*   푸터 영역    */
+/******************/
+
+footer{
+  width:100%;   /* 너비 */
+  height: 30px;  /* 높이 */
+  border-top:2px solid #222;
+}
+#bottomMenu{
+  width:100%;
+  height:20px;
+  position:relative;
+}
+#bottomMenu ul {
+  margin-top:15px;
+}
+#bottomMenu ul li{
+  float:left;  /* 가로로 배치 */
+  padding:5px 20px;
+  border-right:1px solid #ddd;   /* 항목 오른쪽에 테두리 */
+}
+#bottomMenu ul li:last-child{
+  border:none;  /* 마지막 항목에는 오른쪽 테두리 없음 */
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+  font-size:15px;  /* 글자 크기 */
+  color:#666;   /* 글자 색 */
+}
+#sns {
+  position:absolute;
+  right:0;  /* 오른쪽 끝에 배치 */
+}
+#sns ul li{
+  border:none;  /* 테두리 없이 */
+  padding:5px;
+}
+#company{
+  clear:left;  /* 플로팅 해제. clear:both도 가능 */
+  margin-top:25px;  /* 위쪽 마진 */
+  margin-left:20px;  /* 왼쪽 마진 */
+}
+p {
+  font-size:14px;  /* 글자 크기 */
+  color:#aaa;    /* 글자 색*/
+}
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col-6 d-lg-block d-none" style="background-image: url(../static/img1.png) ; background-repeat: no-repeat; background-size: 100% 100%;"/>
+      <div class="title_page">
+        <div class="textbox">
+            <h1 id="title_text">
+                DEEP OCEAN
+            </h1>
+            <h2 id="today_style">
+            <br>오늘 내 스타일이 궁금하다면?
+            </h2>
+            <h3 id="introduce">
+            오늘의 패션: 오션
+            </h3>
+        </div>
+        <div class="area_sns">
+            <a href="https://www.musinsa.com" target="_blank">
+            <button type="button" class="btn btn-primary" disabled>무신사</button>
+            </a>
+            <a href="https://www.seoulstore.com" target="_blank">
+            <button type="button" class="btn btn-secondary" disabled>서울스토어</button>
+            </a>
+            <a href="https://www.wconcept.co.kr" target="_blank">
+            <button type="button" class="btn btn-primary" disabled>W컨셉</button>
+            </a>
+            <a href="https://www.29cm.co.kr" target="_blank">
+            <button type="button" class="btn btn-secondary" disabled>29cm</button>
+            </a>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-12 col-lg-6 ps-1 pe-0">
+    <div id="container">
+      <header style="background-color: steelblue;">
+
+        <div class="row h-100">
+          <div class="col-md-6 col-12">
+            <div id="logo">
+              <a onclick="window.location.href='/'">
+                <h1>DEEP OCEAN</h1>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <nav>
+              <ul id="topMenu">
+                <li><a href="#">FASHION <span>▼</span></a>
+                  <ul>
+                    <li><a href="#">STREET</a></li>
+                    <li><a href="#">DENDY</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">TREND <span>▼</span></a>
+                  <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-12">
+            <div id="slideShow">
+              <div id="slides" class="w-100">
+                <img class="slideshow-img w-100" src=" {{ url_for('static', filename='img4.jpg')  }} " alt="">
+                <img class="slideshow-img w-100" src=" {{ url_for('static', filename='img5.jpg')  }} " alt="">
+                <img class="slideshow-img w-100" src=" {{ url_for('static', filename='img6.jpg')  }} " alt="">
+                <img class="slideshow-img w-100" src=" {{ url_for('static', filename='img7.jpg')  }} " alt="">
+                <img class="slideshow-img w-100" src=" {{ url_for('static', filename='img8.jpg')  }} " alt="">
+                <img class="slideshow-img w-100" src=" {{ url_for('static', filename='img9.jpg')  }} " alt="">
+                <button id="prev" style="left: 0;">&lang;</button>
+                <button id="next" style="right: 0;">&rang;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <div id="links">
+        <ul>
+          <li>
+            <a onclick="window.location.href='/stylecls'">
+              <span id="quick-icon1"></span>
+              <p>오늘의 패션은~?</p>
+            </a>
+          </li>
+          <li>
+            <a onclick="window.location.href='/stylecls'">
+              <span id="quick-icon2"></span>
+              <p>오늘의 패션은~?</p>
+            </a>
+          </li>
+          <li>
+            <a onclick="window.location.href='/stylecls'">
+              <span id="quick-icon3"></span>
+              <p>오늘의 패션은~?</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--  <footer>
+        <div id="bottomMenu">
+          <ul>
+            <li><a href="#">회사 소개</a></li>
+            <li><a href="#">개인정보처리방침</a></li>
+          </ul>
+          <div id="sns">
+            <ul>
+              <li><a href="#"><img src="images/sns-1.png"></a></li>
+              <li><a href="#"><img src="images/sns-2.png"></a></li>
+              <li><a href="#"><img src="images/sns-3.png"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="company">
+        <p>양재동!</p>
+        </div>
+      </footer> -->
+    </div>
+  </div>
+
+  </div>
+
+  <script src="js/slideshow.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script>
+    var slides = document.querySelectorAll("#slides > img");
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+var current = 0;
+
+showSlides(current);
+prev.onclick = prevSlide;
+next.onclick = nextSlide;
+
+function showSlides(n) {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[n].style.display = "block";
+}
+
+function prevSlide() {
+  if (current > 0) current -= 1;
+  else
+    current = slides.length - 1;
+    showSlides(current);
+}
+
+function nextSlide() {
+  if (current < slides.length - 1) current += 1;
+  else
+    current = 0;
+    showSlides(current);
+}
+</script>
+</body>
+</body>
+</html>
