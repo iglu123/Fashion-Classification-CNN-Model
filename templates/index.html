@@ -47,13 +47,13 @@
             <div class="image-upload-wrap">
                 <input id="img" name="image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
                 <div class="drag-text">
-                    <img src="../static/img10.png" class="upload-photo" alt="upload-image">
+                    <img src="../static/img10.gif" class="upload-photo" alt="upload-image">
                     <h3 class="upload-text">Click Here!</h3>
 
                 </div>
             </div>
             <div class="file-upload-content">
-                <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+<!--                <img class="file-upload-image" id="face-image" src="#" alt="your image" />-->
                 <div id="loading" style="padding: 2px;">
                     <div id="load">
                         <img src="../static/img3.gif" alt="loading" style="width: 6em; height: 6em;">
@@ -144,7 +144,8 @@
                     reader.onload = function(e) {
                         $('.image-upload-wrap').hide();
                         $('#loading').show();
-                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-image').hide;
+<!--                        $('.file-upload-image').attr('src', e.target.result);-->
                         $('.file-upload-content').show();
                         $('.image-title').html(input.files[0].name);
                     };

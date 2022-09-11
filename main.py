@@ -132,5 +132,5 @@ def mmake_prediction():
 if __name__ == '__main__':
     model_boy = load_model('./my_model2.h5')
     model_girl = load_model('./my_model2.h5')
-    app.run  (port=5000, debug=True)
+    app.run  (host="0.0.0.0", debug=True)
 
