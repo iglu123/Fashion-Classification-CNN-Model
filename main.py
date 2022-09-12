@@ -28,7 +28,7 @@ def main():
 
 @app.route('/stylecls')
 def predict():
-    return render_template('index.html')
+    return render_template('sub1.html')
 
 
 # 여자 이미지 업로드에 대한 예측값 반환
@@ -39,7 +39,7 @@ def make_prediction():
         # 업로드 파일 처리 분기
         file = request.files['image']
         if not file:
-            return render_template('index.html', label="No Files")
+            return render_template('sub1.html', label="No Files")
 
         # 이미지 픽셀 정보 읽기
         # 알파 채널 값 제거 후 1차원 Reshape
@@ -115,7 +115,7 @@ def mmake_prediction():
             # 업로드 파일 처리 분기
             file = request.files['image']
             if not file:
-                return render_template('index.html', label="No Files")
+                return render_template('sub1.html', label="No Files")
 
             # 이미지 픽셀 정보 읽기
             # 알파 채널 값 제거 후 1차원 Reshape
