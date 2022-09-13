@@ -15,14 +15,14 @@
 
     <h2>당신의 옷 스타일은 {{label}}! AI가 이 스타일의 추천사진을 보여드릴게요!</h2>
 
-    <form id="upload" action="/predictboy" method="POST" enctype="multipart/form-data">
+    <form id="upload" action="/predictboy" method="POST" enctype="multipart/form-data" >
         <div class="img">
 <!--            <div id="image_preview">-->
 <!--                <img style="width:400px; height:600px;" img id="preview" />-->
 <!--            </div>-->
             <div class="f_box">
                     <!-- <label for="img">사진첨부</label> -->
-                    <input type="file" id="img"  name="image" onchange="readURL(this);">
+                    <input style="display:none" type="file" id="img"  name="image" onchange="readURL(this);">
             </div>
 
 <!--            <input id="target_btn" type="submit" class="btn-btn"  disabled value="예측 결과" onclick="javascript:alert('스타일 분석 완료!');">-->
@@ -52,6 +52,8 @@
     document.getElementById('preview').src = "";
   }
 }
+
+
     </script>
 </body>
 </html>
