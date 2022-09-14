@@ -1,0 +1,9 @@
+		img{
+			width: 500px;
+			height: 500px;
+		}
+
+		* {
+			background-image: url(../static/img1.jpg);
+			font-family: 'Jua', sans-serif;
+		}
