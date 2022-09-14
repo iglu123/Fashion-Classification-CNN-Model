@@ -25,7 +25,7 @@ cursor = db.cursor(pymysql.cursors.DictCursor)
 def main():
     return render_template('main.html')
 
-@app.route('/ft')
+@app.route('/wc')
 def worldcup():
     return render_template('wc.html')
 
