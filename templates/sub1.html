@@ -12,6 +12,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -29,9 +30,9 @@
 
     <body>
         <section class="section">
+            <button onclick="window.location.href='/'" type="button" class="btn btn-secondary">메인으로 돌아가기</button>
             <h1 class="title">🥼👖Today's Fashion👟👟</h1>
             <form id="upload" action="/predictgirl" method="POST" enctype="multipart/form-data">
-
                 <section class="genderselecter">
                 <div>
                     <input type="checkbox" id="gender" onclick="genderselect()">
@@ -42,6 +43,7 @@
                     </label>
                 </div>
             </section>
+        </section>
 
         <div class="file-upload">
             <div class="image-upload-wrap">

@@ -25,6 +25,9 @@ cursor = db.cursor(pymysql.cursors.DictCursor)
 def main():
     return render_template('main.html')
 
+@app.route('/ft')
+def worldcup():
+    return render_template('wc.html')
 
 @app.route('/stylecls')
 def predict():

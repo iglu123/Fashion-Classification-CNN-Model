@@ -1,59 +1,113 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 
 <head>
-    <title>DEEP OCEAN</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
-      <link href=" {{ url_for('static', filename='predictboy.css')  }} " rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="DEEP OCEAN">
+    <meta name="description" content="오늘의 패션">
+    <link rel="icon" type="image/svg+xml" href=" {{ url_for('static', filename='water-solid.svg')  }} ">
 
+    <title>DEEP OCEAN</title>
+
+    <!-- Jquery CDN 로드 : 항상 최신 버전 사용 -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <!-- Main CSS -->
+    <link href="{{ url_for('static', filename='predictboy.css')  }}" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/b8a7fea4d4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<h1>당신의 스타일은...</h1>
-<div class="agile-its">
-
-    <h2>당신의 옷 스타일은 {{label}}! AI가 이 스타일의 추천사진을 보여드릴게요!</h2>
-
-    <form id="upload" action="/predictboy" method="POST" enctype="multipart/form-data" >
-        <div class="img">
-<!--            <div id="image_preview">-->
-<!--                <img style="width:400px; height:600px;" img id="preview" />-->
-<!--            </div>-->
-            <div class="f_box">
-                    <!-- <label for="img">사진첨부</label> -->
-                    <input style="display:none" type="file" id="img"  name="image" onchange="readURL(this);">
+    <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 w-50 vh-100"
+        style="position: relative; background-image: url(../static/sub2.png); background-repeat: no-repeat; background-size: 100% 100%; text-align: center; left: 25%;">
+        <div class="logo-space" onclick="window.location.href='/'"
+            style="background-color: rgba(251, 251, 251, 0.3); background-size: 50% 100%;">
+            <h1 id="logo">DEEP OCEAN</h1>
+        </div>
+        <div class="main-box container  w-75 h-75" style="background-size: 100% 100%;">
+            <div class="bottom1">
+            <div class="row">
+                <div class="main-text col-12">
+                    <h2 class="main-text">오늘 내 패션은?</h2>
+                </div>
+                <div class="image-upload-wrap col-6">
+                    <input id="user-img" name="image" class="file-upload-image" type='file' onchange="readURL(this);"
+                        accept="image/*" />
+                </div>
+                <div class="user-style col-6">
+                    <h4 class="today-text">오늘의 스타일 <br>[{{label}}]<br></h4>
+                    <button type="button" class="btn btn-secondary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 1em;">
+                        <a onclick="window.location.href='/stylecls'">Retry</a>
+                    </button>
+                </div>
+            </div>
+            </div>
+            <div class="bottom2">
+            <div class="result-wrap">
+                <div class="row">
+                    {% for i in range(3) %}
+                    <img class="col-4" src="{{imagerows[i]['url']}}" alt="Card image">
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+            <div class="bottom3">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                스타일 사진 더보기
+            </button>
+            <div class="collapse" id="collapseExample">
+                <div class="row">
+                    {% for i in range(3, 15) %}
+                    <img class="col-4" src="{{imagerows[i]['url']}}" alt="Card image">
+                    {% endfor %}
+                </div>
+            </div>
             </div>
 
-<!--            <input id="target_btn" type="submit" class="btn-btn"  disabled value="예측 결과" onclick="javascript:alert('스타일 분석 완료!');">-->
-            <button><a onclick="window.location.href='/stylecls'" style="background-color: #c7ccc3;">다른 사진으로 다시할래</a></button>
+
+
+            <form id="upload" action="/predictboy" method="POST" enctype="multipart/form-data"></form>
 
         </div>
-
-        <div>
-
-        </div>
-
-        <div>
-            {% for i in range(16) %}
-            <img src="{{imagerows[i]['url']}}">
-            {% endfor %}
-        </div>
-    </form>
+    </div>
     <script>
         function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('preview').src = e.target.result;
-    };
-    reader.readAsDataURL(input.files[0]);
-  } else {
-    document.getElementById('preview').src = "";
-  }
-}
-
-
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('preview').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                document.getElementById('preview').src = "";
+            }
+        }
     </script>
+    <!-- <script>
+          function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('.image-upload-wrap');
+                        // $('#loading').show();
+                        $('.file-upload-image');
+                    }
+                }
+            }
+    </script> -->
+    </div>
 </body>
 </html>

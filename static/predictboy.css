@@ -1,7 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Noto+Sans+KR:wght@300;400;500&display=swap');
 * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Jua', sans-serif;
-            text-align: center;
-            background-color: #a1c6dd;  /* 하늘하늘 */
-        }
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+
+}
+
+/* .body {
+    margin: 0 auto;
+    background-color: #6666cc;
+    box-sizing: border-box;
+    color: rgba(251, 251, 251, 06);
+} */
+
+#logo {
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    font-size: 7em;
+    color: #9eb0e4;
+    text-shadow: 3px -3px 5px navy;
+}
+
+.container {
+    border-radius: 5%;
+    border-style:groove;
+    background-color: rgba(251, 251, 251, 0.6);
+}
+.main-text {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+#bottom1 {
+    height: 35%;
+}
+#bottom2 {
+    height: 30%;
+    margin-top: 10%;
+}
+#bottom3 {
+    height: 35%;
+    margin-top: 10%;
+}

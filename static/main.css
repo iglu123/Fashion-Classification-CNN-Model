@@ -442,21 +442,21 @@ ul {
 }
 
 #quick-icon5 {
-  background-image: url('../static/icon6.png');
+  background-image: url('../static/icon5.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
 }
 
 #quick-icon6 {
-  background-image: url('../static/icon3.png');
+  background-image: url('../static/icon6.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
 }
 
 #quick-icon7 {
-  background-image: url('../static/icon5.png');
+  background-image: url('../static/icon3.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
