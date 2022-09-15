@@ -33,6 +33,10 @@ def worldcup():
 def predict():
     return render_template('sub1.html')
 
+@app.route('/maze')
+def miro():
+    return render_template('miro.html')
+
 
 # 여자 이미지 업로드에 대한 예측값 반환
 @app.route('/predictgirl', methods=['POST'])
